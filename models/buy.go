@@ -16,7 +16,7 @@ type Buy struct {
 
 func (b Buy) String() string {
 	out := ""
-	out += "UserId: " + b.UserId
+	out += "UserId: " + b.Userid
 	out += "\nDishes:\n"
 	for _, v := range b.Dishes {
 		out += "\t" + v + "\n"

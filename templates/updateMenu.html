@@ -1,0 +1,49 @@
+
+{{define "head"}}
+	<meta charset="UTF-8">
+	<!-- Site Title -->
+	<title>Actualizar Menú</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+		<link rel="stylesheet" href="/static/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/static/css/bootstrap.css">
+		<link rel="stylesheet" href="/static/css/main.css">
+{{end}}
+{{define "body"}}
+
+
+
+		<!-- Start top-dish Area -->
+		<section class="top-dish-area section-gap" id="dish">
+			<div class="container">
+				<div class="row d-flex justify-content-center">
+					<div class="menu-content pb-60 col-lg-8">
+						<div class="title text-center">
+							<h1 class="mb-10 text-uppercase">Escoger Menú del día</h1>
+							<br>
+						</div>
+					</div>
+				</div>						
+				<div >
+				{{range $key, $value := .}}
+
+					<div class="single-dish centrado-div">
+						<div class="thumb width-image">
+							<img class="img-fluid centrado-image "  src="/images/{{.Image}}" alt="">
+						</div>
+						<h4 class="centrado-text text-uppercase pt-20 pb-20">{{.Name}}</h4>
+						<p class="centrado-text width-text">
+							{{.Description}}
+						</p>
+					</div>
+					{{end}}
+				</div>
+			</div>	
+		</section>
+		<!-- End top-dish Area -->
+
+		
+		<script src="/static/js/jquery-2.2.4.min.js"></script> <!--Funciona con el -->
+		<script src="/static/js/easing.min.js"></script>	<!--Funciona con el -->		
+		<script src="/static/js/main.js"></script>	<!--Funciona con el -->
+{{end}}

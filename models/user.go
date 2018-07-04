@@ -13,6 +13,7 @@ type User struct {
 	Email    string        `bson:"email" json: "email"`
 	Username string        `bson:"username" json: "username"`
 	Password string        `bson:"password" json: "password"`
+	Type     string        `bson:"type" json:"type"`
 }
 
 func (u User) String() string {

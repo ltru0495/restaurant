@@ -1,0 +1,21 @@
+{{define "head"}} <title>Index</title> {{end}}
+{{define "body"}} 
+	<h1>Lista de Platos</h1>
+	<div>
+		<table borde = "1">
+			<tr>
+				<th>Nombre</th>
+				<th>Descripción</th>
+				<th>Precio</th>
+			</tr>
+
+			{{range $key, $value := .}}
+			<tr>
+				<td>{{$value.Name}}</td>
+				<td>{{$value.Description}}</td>
+				<td>{{$value.Price}}</td>
+			</tr>
+			{{end}}
+		</table>
+	</div>
+{{end}}

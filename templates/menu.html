@@ -1,0 +1,64 @@
+{{define "head"}}
+	<meta charset="UTF-8">
+	<!-- Site Title -->
+	<title>Menú del día</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+		<link rel="stylesheet" href="/static/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/static/css/bootstrap.css">
+		<link rel="stylesheet" href="/static/css/main.css">
+{{end}}
+
+{{define "body"}}
+		  <header id="header" id="home">
+		    <div class="container">
+		    	<div class="row  justify-content-between d-flex">
+			      <div id="logo">
+			        <a href="index.html"><img src="/static/images/logo.png" alt="" title="" /></a> <!-- Cambiara la referencia -->
+			      </div>
+			      <nav id="nav-menu-container"><!-- #nav-menu-container -->
+			        <ul class="nav-menu">
+			          <li class="menu-active"><a href="#home">Home</a></li>
+			          <li><a href="#dish">Platos</a></li>	<!-- Cambiar el href por un enlacea comida-->
+			          <li><a href="#chefs">Chefs</a></li>
+			          <li><a href="#menu">Menú del día</a></li>
+			        </ul>
+			      </nav><!--End #nav-menu-container -->
+		    	</div>
+		    </div>
+		  </header><!-- #header -->
+
+		<!-- Start top-dish Area -->
+		<section class="top-dish-area section-gap" id="dish">
+			<div class="container">
+				<div class="row d-flex justify-content-center">
+					<div class="menu-content pb-60 col-lg-8">
+						<div class="title text-center">
+							<h1 class="mb-10">Menú del día</h1>
+							<br><br>
+						</div>
+					</div>
+				</div>			
+				<div class="row">
+					{{range $key, $value := .}}
+
+					<div class="single-dish centrado-div">
+						<div class="thumb width-image">
+							<img class="img-fluid centrado-image "  src="/images/{{.Image}}" alt="">
+						</div>
+						<h4 class="centrado-text text-uppercase pt-20 pb-20">{{.Name}}</h4>
+						<p class="centrado-text width-text">
+							{{.Description}}
+						</p>
+					</div>
+					{{end}}
+				</div>
+			</div>	
+		</section>
+		<!-- End top-dish Area -->
+
+		
+		<script src="script/paul-carlos/menu/jquery-2.2.4.min.js"></script> <!--Funciona con el -->
+		<script src="script/paul-carlos/menu/easing.min.js"></script>	<!--Funciona con el -->		
+		<script src="script/paul-carlos/menu/main.js"></script>	<!--Funciona con el -->
+	{{end}}

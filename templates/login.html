@@ -1,0 +1,11 @@
+{{define "head"}} <title>Log In</title> {{end}}
+{{define "body"}} 
+	<h1>Login</h1>
+ 		<form action="/auth" method="post">
+      		User name: <br>
+      		<input type="text" id="username" name="username">
+  		Password: <br>
+      		<input type="password" id="password" name="password">
+      		<button type="submit">Login</button>
+  </form>
+{{end}}

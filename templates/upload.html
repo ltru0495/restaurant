@@ -1,0 +1,11 @@
+{{define "head"}} <title>Log In</title> {{end}}
+{{define "body"}} 
+	<h1>Login</h1>
+ 		<form action="/guardarPlato" enctype="multipart/form-data" method="post">
+      		User name: <br>
+      		<input type="text" id="username" name="username">
+ 	  		Password: <br>
+    		<input type="file" name="file" id="file">	
+      		<button type="submit">Guardar</button>
+  		</form>
+{{end}}

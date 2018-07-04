@@ -5,6 +5,7 @@ import (
 	mgo "gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 	models "restaurant/models"
+	"strconv"
 )
 
 type UserRepository struct {
@@ -15,8 +16,25 @@ const (
 	USERCOLLECTION = "users"
 )
 
+func (repo UserRepository) Authenticate(username string, password string) bool {
+	var user models.User
+	err := repo.DB.C(USERCOLLECTION).Find(bson.M{"username": username, "password": password}).One(&user)
+
+	if (err != nil || models.User{} == user) {
+		return false
+	}
+	return true
+}
+
 func (repo UserRepository) Insert(user models.User) error {
-	err := repo.DB.C(USERCOLLECTION).Insert(&user)
+	n, err := repo.DB.C(USERCOLLECTION).Count()
+	n = n + 1
+	if err != nil {
+		user.Userid = ""
+	} else {
+		user.Userid = strconv.Itoa(n)
+	}
+	err = repo.DB.C(USERCOLLECTION).Insert(&user)
 	return err
 }
 

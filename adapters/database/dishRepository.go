@@ -5,6 +5,7 @@ import (
 	mgo "gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 	models "restaurant/models"
+	"strconv"
 )
 
 type DishRepository struct {
@@ -16,8 +17,15 @@ const (
 )
 
 func (repo DishRepository) Insert(dish models.Dish) error {
-	err := repo.DB.C(DISHCOLLECTION).Insert(&dish)
+	n, err := repo.DB.C(DISHCOLLECTION).Count()
+	n = n + 1
+	if err != nil {
+		dish.Dishid = ""
+	}
+	dish.Dishid = strconv.Itoa(n)
+	err = repo.DB.C(DISHCOLLECTION).Insert(&dish)
 	return err
+
 }
 
 func (repo DishRepository) FindById(did string) (error, models.Dish) {

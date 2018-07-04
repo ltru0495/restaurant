@@ -1,0 +1,27 @@
+{{define "base"}}
+<!DOCTYPE html>
+<html>
+
+
+<head>{{template "head" .}}</head>
+<body>
+	<header id="header" id="home">
+		<div class="container">
+			<div class="row  justify-content-between d-flex">
+				<div id="logo">
+					<a href="index.html"><img src="/static/images/logo.png" alt="" title="" /></a> <!-- Cambiara la referencia -->
+				</div>
+				<nav id="nav-menu-container"><!-- #nav-menu-container -->
+					<ul class="nav-menu">
+						<li class="menu-active"><a href="#home">Home</a></li>
+						<li><a href="#dish">Platos</a></li>	<!-- Cambiar el href por un enlacea comida-->
+						<li><a href="/menu/2018-07-3">Menú del día</a></li>
+					</ul>
+				</nav><!--End #nav-menu-container -->
+			</div>
+		</div>
+	</header><!-- #header -->
+	{{template "body" .}}
+</body>
+</html>
+{{end}}
